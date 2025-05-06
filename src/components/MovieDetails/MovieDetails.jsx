@@ -6,6 +6,7 @@ import playIcon from "../../assets/play_icon_details.svg";
 import backIcon from "../../assets/back_icon.svg";
 import closeIcon from "../../assets/close.svg";
 import placeholderImage from "../../assets/Image_not_available.png";
+import Toast from "../Toast/Toast";
 
 const VideoPopup = ({ videoKey, onClose }) => {
   useEffect(() => {
@@ -56,20 +57,30 @@ const MovieDetails = () => {
     const loadMovieDetails = async () => {
       try {
         setIsLoading(true);
+        setError(null);
         const [movieData, videosData] = await Promise.all([
           fetchMovieDetails(id),
           fetchMovieVideos(id)
         ]);
 
+        if (!movieData || !movieData.id) {
+          navigate('/404', { replace: true });
+          return;
+        }
+
         setMovie(movieData);
         
         // Find the first trailer or teaser
-        const trailerVideo = videosData.results.find(
+        const trailerVideo = videosData.results?.find(
           video => video.type === "Trailer" || video.type === "Teaser"
         );
         setTrailer(trailerVideo);
       } catch (err) {
-        setError('Failed to load movie details. Please try again later.');
+        if (err.message.includes('404') || err.message.includes('not found')) {
+          navigate('/404', { replace: true });
+        } else {
+          setError('Failed to load movie details. Please try again later.');
+        }
         console.error('Error loading movie details:', err);
       } finally {
         setIsLoading(false);
@@ -77,7 +88,7 @@ const MovieDetails = () => {
     };
 
     loadMovieDetails();
-  }, [id]);
+  }, [id, navigate]);
 
   const handlePlayClick = () => {
     setShowTrailer(true);
@@ -95,8 +106,18 @@ const MovieDetails = () => {
     return <div className="loadingBackground"></div>;
   }
 
-  if (error || !movie) {
-    return <div className="loadingBackground"></div>;
+  if (error) {
+    return (
+      <>
+        <div className="loadingBackground"></div>
+        <Toast message={error} type="error" onClose={() => setError(null)} />
+      </>
+    );
+  }
+
+  if (!movie) {
+    navigate('/404', { replace: true });
+    return null;
   }
 
   const renderStars = (rating) => {
