@@ -80,6 +80,9 @@
     width: calc(100% - 32px);
     padding: 12px;
     min-width: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
   }
 
   .movie-toast-content p {
@@ -90,9 +93,11 @@
 @media screen and (max-width: 480px) {
   .movie-toast {
     top: 70px;
-    width: calc(100% - 16px);
-    margin: 0 8px;
+    width: calc(100% - 32px);
     border-radius: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
   }
 
   .movie-toast-content {
@@ -103,4 +108,4 @@
     width: 20px;
     height: 20px;
   }
-} 
+}

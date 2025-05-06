@@ -4,10 +4,11 @@ export const fetchTrendingMovies = async (page = 1) => {
   try {
     const response = await fetch(constructUrl(ENDPOINTS.TRENDING, { page }));
     if (!response.ok) {
-      throw new Error(`Failed to fetch trending movies: ${response.status}`);
+      throw new Error('Failed to fetch trending movies');
     }
     const data = await response.json();
     
+    // Transform the data to match our needs
     return {
       movies: data.results.map(movie => ({
         id: movie.id,
@@ -33,10 +34,7 @@ export const fetchMovieDetails = async (movieId) => {
   try {
     const response = await fetch(constructUrl(ENDPOINTS.MOVIE_DETAILS(movieId)));
     if (!response.ok) {
-      if (response.status === 404) {
-        throw new Error('404 Movie not found');
-      }
-      throw new Error(`Failed to fetch movie details: ${response.status}`);
+      throw new Error('Failed to fetch movie details');
     }
     const data = await response.json();
     
@@ -66,7 +64,7 @@ export const fetchMovieVideos = async (movieId) => {
   try {
     const response = await fetch(constructUrl(ENDPOINTS.MOVIE_VIDEOS(movieId)));
     if (!response.ok) {
-      throw new Error(`Failed to fetch movie videos: ${response.status}`);
+      throw new Error('Failed to fetch movie videos');
     }
     const data = await response.json();
     return data;
@@ -80,7 +78,7 @@ export const searchMovies = async (query, page = 1) => {
   try {
     const response = await fetch(constructUrl(ENDPOINTS.SEARCH, { query, page }));
     if (!response.ok) {
-      throw new Error(`Failed to search movies: ${response.status}`);
+      throw new Error('Failed to search movies');
     }
     const data = await response.json();
     
@@ -103,4 +101,4 @@ export const searchMovies = async (query, page = 1) => {
     console.error('Error searching movies:', error);
     throw error;
   }
-};
+}; 
