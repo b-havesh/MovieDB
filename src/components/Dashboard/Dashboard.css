@@ -1,0 +1,37 @@
+.movie-dashboard {
+  background-color: #0c111b;
+  padding: 0;
+}
+
+.movie-dashboard-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0;
+  position: relative;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1440px) {
+  .movie-dashboard-container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .movie-dashboard-container {
+    max-width: 900px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-dashboard-container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .movie-dashboard-container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+} 

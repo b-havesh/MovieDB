@@ -1,0 +1,147 @@
+.movie-banner-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to right, #0c111b, var(--primary-color));
+  overflow: hidden;
+}
+
+.movie-banner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.movie-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  color: #fff;
+}
+
+.movie-banner-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.movie-banner-description {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.movie-banner-cta {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.movie-banner-cta:hover {
+  background-color: #ff6b50;
+}
+
+.movie-banner-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(12, 17, 27, 0.8), transparent);
+  z-index: 1;
+}
+
+.banner {
+  margin-top: 70px;
+  transition: margin-top 0.3s ease;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .movie-banner-section {
+    height: 400px;
+  }
+
+  .movie-banner-container {
+    padding: 0 32px;
+  }
+
+  .movie-banner-title {
+    font-size: 40px;
+  }
+
+  .movie-banner-description {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-banner-section {
+    height: 350px;
+  }
+
+  .movie-banner-container {
+    padding: 0 24px;
+  }
+
+  .movie-banner-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .movie-banner-title {
+    font-size: 32px;
+  }
+
+  .movie-banner-description {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .movie-banner-overlay {
+    width: 100%;
+    background: linear-gradient(to top, rgba(12, 17, 27, 0.8), transparent);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .movie-banner-section {
+    height: 300px;
+  }
+
+  .movie-banner-container {
+    padding: 0 16px;
+  }
+
+  .movie-banner-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .movie-banner-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .movie-banner-cta {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .banner {
+    margin-top: 110px;
+  }
+}

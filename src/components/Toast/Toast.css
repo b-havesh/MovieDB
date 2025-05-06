@@ -1,0 +1,106 @@
+.movie-toast {
+  position: fixed;
+  top: 90px; /* Adjusted to account for navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: movie-toast-slide 0.3s ease-out;
+  z-index: 1000;
+  min-width: 320px;
+}
+
+.movie-toast.error {
+  border-left: 4px solid #d32f2f;
+}
+
+.movie-toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.movie-toast-icon {
+  width: 24px;
+  height: 24px;
+  color: #d32f2f;
+  flex-shrink: 0;
+}
+
+.movie-toast-content p {
+  color: #263238;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.movie-toast-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #546e7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.movie-toast-close:hover {
+  color: #263238;
+}
+
+.movie-toast-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes movie-toast-slide {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .movie-toast {
+    top: 80px;
+    width: calc(100% - 32px);
+    padding: 12px;
+    min-width: unset;
+  }
+
+  .movie-toast-content p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .movie-toast {
+    top: 70px;
+    width: calc(100% - 16px);
+    margin: 0 8px;
+    border-radius: 8px;
+  }
+
+  .movie-toast-content {
+    gap: 8px;
+  }
+
+  .movie-toast-icon {
+    width: 20px;
+    height: 20px;
+  }
+} 

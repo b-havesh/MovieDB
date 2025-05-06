@@ -1,0 +1,122 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0;
+  padding: 0 20px;
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-number,
+.pagination-arrow {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.pagination-number:hover:not(:disabled),
+.pagination-arrow:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pagination-number.active {
+  color: #FF6A63;
+  font-weight: 600;
+  /* padding-bottom: 2px; */
+}
+
+.pagination-number.active::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 2px;
+  background-color: #FF6A63;
+}
+
+.pagination-number.ellipsis {
+  cursor: default;
+  pointer-events: none;
+}
+
+.pagination-arrow {
+  font-size: 14px;
+}
+
+.pagination-arrow:disabled,
+.pagination-number:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Tablet screens */
+@media screen and (max-width: 768px) {
+  .pagination {
+    gap: 6px;
+  }
+
+  .pagination-number,
+  .pagination-arrow {
+    min-width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 480px) {
+  .pagination {
+    gap: 4px;
+  }
+
+  .pagination-number,
+  .pagination-arrow {
+    padding: 6px 10px;
+    min-width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .pagination-number.active {
+    padding-bottom: 1px;
+  }
+
+  .pagination-number.active::after {
+    bottom: 6px;
+    width: 10px;
+  }
+
+  /* Hide page numbers except current, first, last and immediate siblings */
+  .pagination-number:not(.active):not(:first-child):not(:last-child):not(.active + .pagination-number):not(.active ~ .pagination-number:first-of-type) {
+    display: none;
+  }
+
+  /* Show ellipsis only when needed */
+  .pagination-ellipsis {
+    display: none;
+  }
+}

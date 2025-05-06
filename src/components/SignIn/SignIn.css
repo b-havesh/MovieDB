@@ -1,0 +1,599 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/helvetica-neue-5/HelveticaNeueLight.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/helvetica-neue-5/HelveticaNeueRoman.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/helvetica-neue-5/HelveticaNeueMedium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../../assets/fonts/helvetica-neue-5/HelveticaNeueBold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.movie-auth {
+  background-color: var(--background-color);
+  min-height: calc(100vh - 70px); /* Subtract header height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-top: 70px; /* Add margin equal to header height */
+}
+
+.movie-auth-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  margin-top: 35px;
+}
+
+.movie-auth-container .movie-auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 552px;
+  height: 378px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(63, 63, 68, 0.05);
+  padding: 32px;
+}
+
+.movie-auth-container .movie-auth-form > * {
+  width: 100%;
+  max-width: 488px;
+}
+
+.movie-auth-container .movie-auth-form h1,
+.movie-auth-container .movie-auth-form p {
+  max-width: 488px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.movie-auth-container .movie-auth-form p {
+  color: var(--text-secondary);
+  font-family: "Helvetica Neue";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20.02px; /* 143% */
+  margin-top: 10px;
+}
+
+/* Mobile screens (below 768px) */
+@media screen and (max-width: 767px) {
+  .movie-auth {
+    min-height: calc(100vh - 60px); /* Reduced header height for mobile */
+    margin-top: 60px;
+    padding: 16px 12px;
+  }
+
+  .movie-auth-container {
+    margin-top: 20px;
+    padding: 0 12px;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    height: auto;
+    min-height: unset;
+    padding: 24px 16px;
+    width: 100%;
+  }
+
+  .movie-auth-container .movie-auth-form h1,
+  .movie-auth-container .movie-auth-form p {
+    color: #ffffff !important;
+  }
+
+  .movie-auth-container .movie-auth-form h1 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.24px;
+  }
+
+  .movie-auth-container .movie-auth-form p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .movie-auth-container .movie-auth-form form {
+    gap: 24px;
+    padding-top: 20px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group {
+    height: 48px; /* Smaller height for mobile inputs */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group input {
+    border: 1px solid rgba(255, 255, 255, 0.23) !important;
+    border-radius: 8px !important;
+    background: #182135 !important;
+    flex-shrink: 0;
+    color: #ffffff;
+    height: 48px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .movie-auth-container
+    .movie-auth-form
+    form
+    .movie-input-group
+    input:focus
+    + label,
+  .movie-auth-container
+    .movie-auth-form
+    form
+    .movie-input-group
+    input:not(:placeholder-shown)
+    + label {
+    background-color: #0c111b !important;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group label {
+    background-color: transparent !important;
+    color: #ffffff;
+    font-size: 13px;
+    top: 16px;
+  }
+
+  .movie-auth-container
+    .movie-auth-form
+    form
+    .movie-input-group
+    .movie-error-text {
+    font-size: 11px;
+    bottom: -14px;
+  }
+
+  .movie-auth-container .movie-auth-form form {
+    gap: 24px;
+  }
+
+  .movie-submit-button {
+    width: 100%;
+    max-width: 100%;
+    height: 38px;
+    font-size: 13px;
+  }
+}
+
+/* Tablet and above */
+@media screen and (min-width: 768px) {
+  .movie-auth-container {
+    max-width: 90%;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    background-color: #fff;
+    border: 1px solid #0000001a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 552px;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .movie-auth-container .movie-auth-form {
+    width: 90%; /* Responsive width */
+    max-width: 552px; /* Max width from Figma */
+  }
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 1024px) {
+  .movie-auth-container {
+    max-width: 55%;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    width: 552px;
+    height: 378px;
+  }
+}
+
+/* Large Desktop breakpoint */
+@media screen and (min-width: 1440px) {
+  .movie-auth-container {
+    max-width: 45%;
+  }
+}
+
+.movie-auth-container .movie-auth-form h1 {
+  color: var(--text-primary);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.movie-auth-container .movie-auth-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px; /* Adjusted gap */
+  padding-top: 27px;
+  position: relative;
+  width: 100%;
+  max-width: 488px;
+  margin: 0 auto;
+  height: auto; /* Changed from fixed 378px */
+  min-height: 280px;
+  flex-shrink: 0;
+}
+
+.movie-auth-container .movie-auth-form form .movie-input-group {
+  position: relative;
+  width: 100%;
+  max-width: 488px;
+  margin: 0 auto;
+  height: 61px;
+  flex-shrink: 0;
+}
+
+.movie-auth-container .movie-auth-form form .movie-input-group input {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 0 1px 0 var(--black-color)4f;
+  caret-color: #546e7a;
+  font-size: 16px;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 488px;
+  height: 61px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.movie-auth-container .movie-auth-form form .movie-input-group input.error {
+  border-color: #d32f2f;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  .movie-error-text {
+  color: #d32f2f;
+  font-size: 12px;
+  position: absolute;
+  left: 16px;
+  bottom: -16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input.error:focus {
+  border-color: #d32f2f;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input.error
+  + label {
+  color: #d32f2f;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input.error:focus
+  + label {
+  color: #d32f2f;
+}
+
+.movie-auth-container .movie-auth-form form .movie-input-group label {
+  background-color: white;
+  left: 12px;
+  padding: 0 4px;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  transition: all 0.15s ease-out;
+  color: #546e7a;
+  font-family: Helvetica;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.movie-auth-container .movie-auth-form form .movie-input-group input:focus,
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input:not(:placeholder-shown) {
+  border: 2px solid var(--secondary-color);
+  outline: none;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input:focus
+  + label,
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input:not(:placeholder-shown)
+  + label {
+  font-family: "Inter", sans-serif;
+  background-color: white;
+  color: var(--secondary-color);
+  top: -8px;
+  transform: translateY(0);
+  padding: 0 1px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.movie-submit-button {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 488px;
+  height: 42px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  margin-top: 5px;
+  padding: 0 24px;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.31);
+  text-align: center;
+  font-style: normal;
+  line-height: 26.25px; /* 187.5% */
+  text-transform: uppercase;
+}
+
+.movie-submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.movie-submit-button:hover:not(:disabled) {
+  background-color: #ff6b50;
+}
+
+/* Progress bar styles */
+.movie-submit-button .movie-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ff6b50;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fillButton 1s ease-out forwards;
+}
+
+.movie-submit-button:disabled .movie-button-text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+@keyframes fillButton {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Remove old loader styles */
+.loader {
+  display: none;
+}
+
+.movie-error-message {
+  background-color: #ffebee;
+  border-radius: 8px;
+  color: #d32f2f;
+  margin-bottom: 16px;
+  padding: 12px;
+}
+
+/* Only keep the orange color for focus state */
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input:not(:focus):not(:placeholder-shown) {
+  border-color: var(--black-color)1a;
+}
+
+.movie-auth-container
+  .movie-auth-form
+  form
+  .movie-input-group
+  input:not(:focus):not(:placeholder-shown)
+  + label {
+  color: #546e7a;
+}
+
+/* Tablet breakpoint */
+@media screen and (min-width: 768px) {
+  .movie-auth {
+    padding: 24px;
+  }
+
+  .movie-auth-container {
+    max-width: 90%;
+    padding: 0;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    border-radius: 16px;
+  }
+
+  .movie-auth-container .movie-auth-form h1 {
+    font-size: 28px;
+  }
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 1024px) {
+  .movie-auth-container {
+    max-width: 55%;
+  }
+
+  .movie-auth-container .movie-auth-form h1 {
+    font-size: 30px;
+  }
+}
+
+/* High-resolution screens */
+@media screen and (min-width: 1440px) {
+  .movie-auth-container {
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movie-auth {
+    padding: 12px 8px;
+  }
+
+  .movie-auth-container {
+    padding: 0 8px;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    padding: 20px 12px;
+  }
+
+  .movie-auth-container .movie-auth-form h1 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .movie-auth-container .movie-auth-form p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .movie-auth-container .movie-auth-form form {
+    gap: 20px;
+    padding-top: 16px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group {
+    height: 44px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group input {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group label {
+    left: 12px;
+    top: 12px;
+  }
+
+  .movie-submit-button {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+  .movie-auth {
+    padding: 8px 4px;
+  }
+
+  .movie-auth-container .movie-auth-form {
+    padding: 16px 8px;
+  }
+
+  .movie-auth-container .movie-auth-form form {
+    gap: 16px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group {
+    height: 40px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group input {
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .movie-auth-container .movie-auth-form form .movie-input-group label {
+    font-size: 12px;
+  }
+
+  .movie-submit-button {
+    height: 34px;
+    font-size: 12px;
+    padding: 0 12px;
+  }
+}
